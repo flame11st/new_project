@@ -1,0 +1,9 @@
+{% if latest_point_list %}
+    <ul>
+    {% for point in latest_point_list %}
+        <li><a href="/routes/{{ point.id }}/">{{ point.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No points are available.</p>
+{% endif %}
