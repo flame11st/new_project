@@ -6,7 +6,7 @@ from .models import Point
 
 
 def index(request):
-    latest_point_list = list(Point.objects.order_by('id')[:10])
+    latest_point_list = list(Point.objects.order_by('create_time')[:10:-1])
     context = {'latest_point_list': latest_point_list}
     return render(request, 'routes/index.html', context)
 
