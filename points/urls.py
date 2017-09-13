@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    #url(r'^(?P<route_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<point_id>[0-9]+)/$', views.detail, name='detail'),
 ]
