@@ -8,7 +8,9 @@ class Point(models.Model):
     title = models.CharField(max_length=100)
     create_time = models.DateTimeField(auto_now_add=True)
     type = models.ForeignKey('Type', on_delete=models.SET_NULL, null=True)
-    photo = models.ForeignKey('Photo', on_delete=models.SET_NULL, null=True)
+    photo1 = models.ForeignKey('Photo', on_delete=models.SET_NULL, null=True)
+    photo2 = models.ForeignKey( 'Photo', on_delete=models.SET_NULL, null=True,related_name='%(class)s_point_photo2')
+    photo3 = models.ForeignKey( 'Photo', on_delete=models.SET_NULL, null=True,related_name='%(class)s_point_photo3')
     description = models.TextField(default='')
     importence = models.ForeignKey('Importence', on_delete=models.SET_NULL, null=True, blank = True)
     facebook = models.URLField(max_length=200, blank = True)
@@ -31,15 +33,7 @@ class Importence(models.Model):
 
 class Type(models.Model):
     title = models.CharField(max_length=100)
-    icon = models.ForeignKey('Icon',on_delete=models.SET_NULL, null=True)
-
-    def __str__(self):
-        return self.title
-
-
-class Icon(models.Model):
-    title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='uploads/icons', max_length=100, default='')
+    icon = models.ImageField(upload_to='uploads/icons', max_length=100, default='')
 
     def __str__(self):
         return self.title
