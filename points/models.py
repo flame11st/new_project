@@ -50,7 +50,7 @@ class Photo(models.Model):
 
 class Country(models.Model):
     title = models.CharField(max_length=100)
-    flag = models.ImageField(upload_to='points/uploads/country flags', max_length=100, default='')
+    flag = models.ImageField(upload_to='uploads/country flags', max_length=100, default='')
 
     def __str__(self):
         return self.title
