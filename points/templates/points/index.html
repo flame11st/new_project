@@ -1,7 +1,7 @@
 {% if latest_point_list %}
     <ul>
     {% for point in latest_point_list %}
-        <li><a href="/routes/{{ point.id }}/">{{ point.name }}</a></li>
+        <li><a href="/points/{{ point.id }}/">{{ point.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

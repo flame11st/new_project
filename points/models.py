@@ -12,7 +12,7 @@ class Point(models.Model):
     photo2 = models.ForeignKey( 'Photo', on_delete=models.SET_NULL, null=True,related_name='%(class)s_point_photo2')
     photo3 = models.ForeignKey( 'Photo', on_delete=models.SET_NULL, null=True,related_name='%(class)s_point_photo3')
     description = models.TextField(default='')
-    importence = models.ForeignKey('Importence', on_delete=models.SET_NULL, null=True, blank = True)
+    importance = models.ForeignKey('Importance', on_delete=models.SET_NULL, null=True, blank = True)
     facebook = models.URLField(max_length=200, blank = True)
     wiki = models.URLField(max_length=200, blank = True)
     trip_advisor = models.URLField(max_length=200, blank = True)
@@ -21,10 +21,10 @@ class Point(models.Model):
     city = models.ForeignKey('City', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.title+' (id: %s)' % self.create_time
+        return self.title+' (create time: %s)' % self.create_time
 
 
-class Importence(models.Model):
+class Importance(models.Model):
     title = models.FloatField()
 
     def __str__(self):

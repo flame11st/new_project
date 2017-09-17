@@ -27,7 +27,7 @@ class Route(models.Model):
 
 class Edge(models.Model):
     point_1 = models.ForeignKey('points.Point', on_delete=models.CASCADE, default='')
-    point_2 = models.ForeignKey('points.Point', on_delete=models.CASCADE, related_name='%(class)s_edges_point2', default='')
+    point_2 = models.ForeignKey('points.Point', on_delete=models.CASCADE, related_name='%(class)s_edges_point2')
     description = models.TextField(default='')
     transports = models.ManyToManyField('Transport', default='')
     distance = models.FloatField(default=0)

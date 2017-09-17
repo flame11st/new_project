@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Point, Photo, Type, Importence, City, Country
+from .models import Point, Photo, Type, Importance, City, Country
 
 admin.site.register([
     Point,
@@ -9,5 +9,5 @@ admin.site.register([
     Type,
     Country,
     City,
-    Importence
+    Importance
     ])
