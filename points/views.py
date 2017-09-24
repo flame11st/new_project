@@ -13,7 +13,5 @@ def index(request):
 
 
 def detail(request, point_id):
-    BASE_DIR = os.path.dirname( os.path.dirname( os.path.abspath( __file__ ) ) )
-    mapbox = os.path.join(BASE_DIR, "mapbox.js")
     point = get_object_or_404(Point, pk=point_id)
-    return render(request, 'points/detail.html', {'point': point, 'mapbox': mapbox})
+    return render(request, 'points/detail.html', {'point': point})

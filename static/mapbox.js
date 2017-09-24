@@ -3,9 +3,9 @@ var map = new mapboxgl.Map({
 	container: 'map',
 	style: 'mapbox://styles/mapbox/streets-v9',
 	center: [30.516253709793087,50.45835782737586],
-	zoom:5
+	zoom: 10
 });
-var geojson;
+
 map.on('load', function () {
 	map.addLayer({
 		"id": "points",
@@ -13,7 +13,7 @@ map.on('load', function () {
 		"source": {"type": "geojson", "data": geojson},
 		"layout": {
 		"icon-image": "triangle-15",
-		"text-field": "{{point.title}}",
+		"text-field": title,
 		"text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
 		"text-offset": [0, 0.6],
 		"text-anchor": "top"

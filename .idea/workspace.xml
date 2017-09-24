@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ec87e2e-9209-4e1b-85e6-b81675b68564" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/points/templates/routes/detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/points/templates/routes/index.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/points/admin.py" afterPath="$PROJECT_DIR$/points/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/points/models.py" afterPath="$PROJECT_DIR$/points/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/points/urls.py" afterPath="$PROJECT_DIR$/points/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/points/views.py" afterPath="$PROJECT_DIR$/points/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/models.py" afterPath="$PROJECT_DIR$/routes/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -370,7 +363,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="736" extended-state="0" />
+    <frame x="-7" y="0" width="1378" height="736" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
