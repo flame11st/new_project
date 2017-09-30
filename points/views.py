@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-import os
-
+import ast
 from django.http import HttpResponse
 from .models import Point
 # Create your views here.
@@ -14,4 +13,6 @@ def index(request):
 
 def detail(request, point_id):
     point = get_object_or_404(Point, pk=point_id)
-    return render(request, 'points/detail.html', {'point': point})
+    geojson = ast.literal_eval(open('.'+point.coordinate.url, 'r' ).read())
+    coord = geojson['features'][0]['geometry']['coordinates']
+    return render(request, 'points/detail.html', {'point': point, 'coord': coord})
