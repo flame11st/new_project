@@ -12,6 +12,7 @@ class Point(models.Model):
     photo2 = models.ForeignKey( 'Photo', on_delete=models.SET_NULL, null=True,related_name='%(class)s_point_photo2')
     photo3 = models.ForeignKey( 'Photo', on_delete=models.SET_NULL, null=True,related_name='%(class)s_point_photo3')
     description = models.TextField(default='')
+    description_short = models.CharField(max_length=250, default='' )
     importance = models.ForeignKey('Importance', on_delete=models.SET_NULL, null=True, blank = True)
     facebook = models.URLField(max_length=200, blank = True)
     wiki = models.URLField(max_length=200, blank = True)

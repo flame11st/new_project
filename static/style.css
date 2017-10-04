@@ -4,12 +4,6 @@
     margin: 60px auto;
 }
 
-#mapp{
-    width: 100%;
-    height: 300px;
-    margin: 60px auto;
-}
-
 html {
   position: relative;
   min-height: 100%;
@@ -40,4 +34,41 @@ body {
 #title img{
     width: 35px;
     height: 35px;
+}
+
+#points{
+    float: center;
+    width: 100%;
+}
+
+#points img{
+    height: 150px;
+}
+
+#filters{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    padding: 15px;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+#btn{
+    width: 100%;
+    padding-right: 15px;
+    float: right;
+}
+
+#btn button{
+    width: 90%;
+}
+
+#carouselExampleControls img{
+    width: 100%;
+    height: 400px;
 }

@@ -1,9 +1,124 @@
-{% if latest_point_list %}
-    <ul>
-    {% for point in latest_point_list %}
-        <li><a href="/points/{{ point.id }}/">{{ point.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No points are available.</p>
-{% endif %}
+
+
+<html>
+    <head>
+        {% load static %}
+
+        <title>Points</title>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href='{% static "style.css" %}'/>
+    </head>
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">TravelTips</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/routes/">Routes</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/points/">Points<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/flame11st/new_project">GitHub</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <div class="container">
+                <div id="filters" class="row">
+                    <div class="col-1">
+                        <div style="padding-top: 15%">Страна: </div>
+                    </div>
+                    <div class="col-3">
+                        <div id="btn" class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                Ukraine
+                            </button>
+                            <div class="dropdown-menu">
+                                {% if countries %}
+                                    {% for country in countries %}
+                                        <a class="dropdown-item" href="#{{country.title}}">{{country.title}}</a>
+                                    {% endfor %}
+                                {% endif %}
+                              </div>
+                            </div>
+                    </div>
+                    <div class="col-1">
+                        <div style="padding-top: 15%">Город: </div>
+                    </div>
+                    <div class="col-3">
+                        <div id="btn" class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                Kiev
+                            </button>
+                            <div class="dropdown-menu">
+                                {% if cities %}
+                                    {% for city in cities %}
+                                        {% if city.country.title == "Ukraine" %}
+                                            <a class="dropdown-item" href="#{{city.title}}">{{city.title}}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                              </div>
+                            </div>
+                    </div>
+                    <div class="col-1">
+                        <div style="padding-top: 15%">Важность: </div>
+                    </div>
+                    <div class="col-3">
+                        <div id="btn" class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                importence
+                            </button>
+                            <div class="dropdown-menu">
+                                {% if importences %}
+                                    {% for importence in importences %}
+                                            <a class="dropdown-item" href="#{{city.title}}">{{importence.title}}</a>
+                                    {% endfor %}
+                                {% endif %}
+                              </div>
+                            </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    {% if latest_point_list %}
+                        {% for point in latest_point_list %}
+                            <div class="col-4">
+                                <div id="points" class="card">
+                                  <img class="card-img-top" src={{point.photo1.image.url}} alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="height: 3rem; margin-bottom: 5px;">{{ point.title }}</h5>
+                                        <p class="card-text" style="height: 12rem; overflow-y: hidden;">{{ point.description_short }}</p>
+                                        <a href="/points/{{ point.id }}/" class="btn btn-primary">Go to point</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No points are available.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </body>
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">New_project footer.</span>
+            </div>
+        </footer>
+</html>
+
