@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404, render
 import ast
-from django.http import HttpResponse
 from .models import Point, Country, City, Importance
 # Create your views here.
 
